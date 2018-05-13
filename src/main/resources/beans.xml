@@ -1,0 +1,84 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    <!--Breeds-->
+    <bean id="breed1" class="com.dms.spring.entity.Breed">
+        <property name="name" value="Breed1"/>
+    </bean>
+    <bean id="breed2" class="com.dms.spring.entity.Breed">
+        <property name="name" value="Breed2"/>
+    </bean>
+
+    <!--Horses-->
+    <bean id="horse1" class="com.dms.spring.entity.Horse">
+        <property name="name" value="Horse1"/>
+        <property name="breed" ref="breed1"/>
+    </bean>
+    <bean id="horse2" class="com.dms.spring.entity.Horse">
+        <property name="name" value="Horse2"/>
+        <property name="breed" ref="breed1"/>
+    </bean>
+    <bean id="horse3" class="com.dms.spring.entity.Horse">
+        <property name="name" value="Horse3"/>
+        <property name="breed" ref="breed2"/>
+    </bean>
+    <bean id="horse4" class="com.dms.spring.entity.Horse">
+        <property name="name" value="Horse4"/>
+        <property name="breed" ref="breed2"/>
+    </bean>
+    <bean id="horse5" class="com.dms.spring.entity.Horse">
+        <property name="name" value="Horse5"/>
+        <property name="breed" ref="breed2"/>
+    </bean>
+
+    <!--Riders-->
+    <bean id="rider1" class="com.dms.spring.entity.Rider">
+        <property name="name" value="Rider1"/>
+    </bean>
+    <bean id="rider2" class="com.dms.spring.entity.Rider">
+        <property name="name" value="Rider2"/>
+    </bean>
+    <bean id="rider3" class="com.dms.spring.entity.Rider">
+        <property name="name" value="Rider3"/>
+    </bean>
+    <bean id="rider4" class="com.dms.spring.entity.Rider">
+        <property name="name" value="Rider4"/>
+    </bean>
+    <bean id="rider5" class="com.dms.spring.entity.Rider">
+        <property name="name" value="Rider5"/>
+    </bean>
+
+    <!--HorseService-->
+    <bean id="horseService" class="com.dms.spring.service.HorseService">
+        <constructor-arg index="0">
+            <list>
+                <ref bean="horse1"/>
+                <ref bean="horse2"/>
+                <ref bean="horse3"/>
+                <ref bean="horse4"/>
+                <ref bean="horse5"/>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <list>
+                <ref bean="rider1"/>
+                <ref bean="rider2"/>
+                <ref bean="rider3"/>
+                <ref bean="rider4"/>
+                <ref bean="rider5"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!--RaceService-->
+    <bean id="raceService" class="com.dms.spring.service.RaceService">
+        <constructor-arg ref="horseService"/>
+    </bean>
+
+    <!--EmulationService-->
+    <bean id="emulationService" class="com.dms.spring.service.EmulationService"/>
+</beans>
