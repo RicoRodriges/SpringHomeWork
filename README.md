@@ -1,1 +1,3 @@
-There are no easter eggs up here. **Go away**.
+Run: `mvn tomcat7:run`
+
+Url: `http://localhost/`
