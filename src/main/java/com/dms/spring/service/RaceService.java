@@ -3,10 +3,12 @@ package com.dms.spring.service;
 import com.dms.spring.entity.Horse;
 import com.dms.spring.entity.Race;
 import com.dms.spring.entity.Rider;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Service
 public class RaceService {
 
     private HorseService horseService;

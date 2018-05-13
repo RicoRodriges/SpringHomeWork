@@ -1,5 +1,7 @@
-# Spring Task 1
-Implement horse race emulator using XML configuration
+# Spring Task 2
+Implement horse race emulator
+
+**Move configuration from XML to Java based and annotation-based approach**
 
 Required beans:
 

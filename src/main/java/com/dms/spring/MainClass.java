@@ -1,14 +1,15 @@
 package com.dms.spring;
 
+import com.dms.spring.config.SpringContextConfig;
 import com.dms.spring.entity.Race;
 import com.dms.spring.service.EmulationService;
 import com.dms.spring.service.RaceService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainClass {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringContextConfig.class);
         RaceService raceService = (RaceService) context.getBean("raceService");
         EmulationService emulationService = (EmulationService) context.getBean("emulationService");
 

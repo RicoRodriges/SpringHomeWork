@@ -2,9 +2,11 @@ package com.dms.spring.service;
 
 import com.dms.spring.entity.Horse;
 import com.dms.spring.entity.Rider;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class HorseService {
 
     private List<Horse> horses;
