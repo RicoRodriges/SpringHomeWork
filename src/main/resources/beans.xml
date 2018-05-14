@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="A" class="com.dms.spring.BeanA">
+        <property name="field1" value="10"/>
+    </bean>
+
+
+    <bean id="B" class="com.dms.spring.BeanB">
+        <constructor-arg index="0" ref="A"/>
+    </bean>
+
+    <bean id="C" class="com.dms.spring.BeanC">
+        <lookup-method name="getBeanD" bean="D"/>
+    </bean>
+
+    <bean id="D" class="com.dms.spring.BeanD" scope="prototype"/>
+
+    <bean id="beanEReplacement" class="com.dms.spring.BeanEReplacement"/>
+    <bean id="E" class="com.dms.spring.BeanE">
+        <replaced-method name="print" replacer="beanEReplacement"/>
+    </bean>
+
+    <bean id="F" class="com.dms.spring.BeanF" init-method="init_custom" destroy-method="destroy_custom"/>
+</beans>
